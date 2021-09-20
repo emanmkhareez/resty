@@ -1,25 +1,44 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import './app.scss';
+
+// Let's talk about using index.js and some other name in the component folder
+// There's pros and cons for each way of doing this ...
+import Header from './components/header';
+import Footer from './components/footer';
+import Form from './components/form';
+import Results from './components/results';
+
+class App extends React.Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      data: null,
+      requestParams: {},
+      result:[]
+    };
+  }
+
+  callApi = (requestParams,getData) => {
+    // mock output
+    const data = getData
+    
+    this.setState({data, requestParams});
+  }
+
+  render() {
+    return (
+      <React.Fragment>
+        <Header />
+        <div>Request Method: {this.state.requestParams.method}</div>
+        <div>URL: {this.state.requestParams.url}</div>
+        <Form handleApiCall={this.callApi} />
+        <Results data={this.state.data} />
+        <Footer />
+      </React.Fragment>
+    );
+  }
 }
 
 export default App;

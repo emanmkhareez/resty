@@ -1,3 +1,7 @@
+![img](lab27.jpg)
+[lab26](https://codesandbox.io/s/loving-newton-7upiz?file=/src/components/form/index.js:232-237)
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

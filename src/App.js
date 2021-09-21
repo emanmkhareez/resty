@@ -30,12 +30,12 @@ function App() {
 const{url,method,reqBody}=requestParams
    
        const data = await axios.get(url);
-       await console.log(data.data);
+       console.log(data.data);
   setdata(data)
       }
       }
     getApiData ();
-  }, [])
+  }, [requestParams])
 
 
   return (

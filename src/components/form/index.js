@@ -11,29 +11,23 @@ function Form (props) {
 
  const handleSubmit = async (e) => {
     e.preventDefault();
-    const formData = {
-
+    const Data = {
       method: method,
       url: url,
       reqBody: reqBody
-
     };
-    const getData = await axios({
-      method: method,
-      url: url,
-      reqBody: reqBody
-    });
-    props.handleApiCall(formData,getData);
+    
+    props.HandeLAPI(Data);
   }
 
-  const itemSelect=(e)=>{
+  const selectMethod=(e)=>{
     setMethod(e.target.value)
   }
 
-  const urlHandler=(e)=>{
+  const inputURL=(e)=>{
     setUrl(e.target.value)
   }
-  const reqBodyHandler=(e)=>{
+  const EnterReqBody=(e)=>{
     setReqBody(e.target.value)
   }
   
@@ -43,7 +37,7 @@ function Form (props) {
           <label className="methods" for='select' >
             Select Your Method
           </label>
-          <select name="select" id='select' onChange={itemSelect}>
+          <select name="select" id='select' onChange={selectMethod}>
             <option id="get" value='get'>GET</option>
             <option id="post" value='post'>POST</option>
             <option id="put" value='put'>PUT</option>
@@ -51,13 +45,13 @@ function Form (props) {
           </select>
           <label  >
             <span>URL: </span>
-            <input name='url' type='text' onChange={urlHandler} />
+            <input name='url' type='text' onChange={inputURL} />
             <button type="submit">GO!</button>
           </label>
              {
-            (method=='post'||method=='put')?<textarea id="text" name="text" rows="4" cols="50" defaultValue=' {"object":"Write JSON For Post ,Put Method,,,
-            (For Test Use Method Get For :https://pokeapi.co/api/v2/pokemon)"}' 
-            onChange={reqBodyHandler}>
+            (method=='post'||method=='put')?<textarea id="text" name="text" rows="4" cols="50" defaultValue=' {"object":,enter JSON  for post OR put method 
+            (For Test  Use GET✅ Method  For : (https://pokeapi.co/api/v2/pokemon)}' 
+            onChange={EnterReqBody}>
             </textarea>:''
           }
         </form>

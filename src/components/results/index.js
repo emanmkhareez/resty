@@ -7,7 +7,7 @@ function Results(props) {
 
   return (
     <section>
-       <h3>Headers:</h
+     
       {props.data ? <div>
         <h2>Headers</h2>
         <JSONPretty id="json-pretty" data={props.data ? props.data.headers : null}></JSONPretty>
